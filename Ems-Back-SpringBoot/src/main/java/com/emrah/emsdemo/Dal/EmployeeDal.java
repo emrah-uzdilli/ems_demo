@@ -9,12 +9,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class HibernateEmployeeDal implements IEmployeeDal{
+public class EmployeeDal implements IEmployeeDal{
     EntityManager entityManager;
+
 
     @Autowired
 
-    public HibernateEmployeeDal(EntityManager entityManager) {
+    public EmployeeDal(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
@@ -52,4 +53,6 @@ public class HibernateEmployeeDal implements IEmployeeDal{
         Employee employee = session.get(Employee.class,id);
         return employee;
     }
+
+
 }

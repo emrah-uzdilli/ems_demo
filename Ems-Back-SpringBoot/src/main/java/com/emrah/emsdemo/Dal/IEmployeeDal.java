@@ -1,5 +1,6 @@
 package com.emrah.emsdemo.Dal;
 
+import com.emrah.emsdemo.Responce.LoginMessage;
 import com.emrah.emsdemo.entities.Employee;
 
 import java.util.List;
@@ -11,5 +12,6 @@ public interface IEmployeeDal {
     void update(Employee employee);
     void delete(Employee employee);
     Employee getById(int id);
+
 
 }

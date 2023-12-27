@@ -15,15 +15,24 @@ public class Employee {
     private String last_Name;
     @Column(name="email")
     private String email;
+    @Column(name="password")
+    private String password;
 
-    public Employee(int id, String first_Name, String last_Name, String email) {
+
+    public Employee(int id, String first_Name, String last_Name, String email,String password) {
         this.id = id;
         this.first_Name = first_Name;
         this.last_Name = last_Name;
         this.email = email;
+        this.password = password;
     }
 
-    public Employee() {}
+    public Employee(int id, String first_Name, String last_Name, String email) {
+        this.id = id;
+        this.first_Name = first_Name;
+        this.email = email;
+        this.password = password;
+    }
 
     public int getId() {
         return id;
@@ -55,5 +64,12 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+    public void setPassword(String password){
+        this.password = password;
     }
 }

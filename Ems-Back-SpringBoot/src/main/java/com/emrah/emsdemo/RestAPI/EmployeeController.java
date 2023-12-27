@@ -1,6 +1,11 @@
 package com.emrah.emsdemo.RestAPI;
+import com.emrah.emsdemo.Bal.IEmployeeLoginService;
 import com.emrah.emsdemo.Bal.IEmployeeService;
+import com.emrah.emsdemo.Dal.EmployeeDTO;
+import com.emrah.emsdemo.Dal.LoginDal;
+import com.emrah.emsdemo.Responce.LoginMessage;
 import com.emrah.emsdemo.entities.Employee;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +15,7 @@ import java.util.List;
 public class EmployeeController {
 
     IEmployeeService employeeService;
+    IEmployeeLoginService employeeLoginService;
 
     public EmployeeController(IEmployeeService employeeService) {
         this.employeeService = employeeService;
@@ -33,5 +39,21 @@ public class EmployeeController {
     @GetMapping("/employees/{id}")
     public Employee getById(@PathVariable int id){
         return employeeService.getById(id);
+    }
+
+
+    @PostMapping("/save")
+    public String saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
+
+        String id = employeeLoginService.addEmployee(employeeDTO);
+        return id;
+
+    }
+    @PostMapping("/login")
+    public ResponseEntity<?> loginEmployee(@RequestBody LoginDal loginDTO) {
+
+            LoginMessage loginMesage = employeeLoginService.loginEmployee(loginDTO);
+        return ResponseEntity.ok(loginMesage);
+
     }
 }
