@@ -1,38 +1,31 @@
 package com.emrah.emsdemo.entities;
 
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 @Table(name="Employee")
 public class Employee {
     @Id
-    @Column(name="ID")
-    @GeneratedValue(strategy=GenerationType.IDENTITY) //Increase id automatically
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Increase id automatically
     private int id;
-    @Column(name="first_Name")
+    @Column(name = "first_Name")
     private String first_Name;
-    @Column(name="last_Name")
+    @Column(name = "last_Name")
     private String last_Name;
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
-    @Column(name="password")
-    private String password;
-
-
-    public Employee(int id, String first_Name, String last_Name, String email,String password) {
-        this.id = id;
-        this.first_Name = first_Name;
-        this.last_Name = last_Name;
-        this.email = email;
-        this.password = password;
-    }
 
     public Employee(int id, String first_Name, String last_Name, String email) {
         this.id = id;
         this.first_Name = first_Name;
+        this.last_Name = last_Name;
         this.email = email;
-        this.password = password;
     }
+    public Employee() {
+    }
+
 
     public int getId() {
         return id;
@@ -66,10 +59,7 @@ public class Employee {
         this.email = email;
     }
 
-    public String getPassword(){
-        return password;
-    }
-    public void setPassword(String password){
-        this.password = password;
-    }
+
 }
+
+

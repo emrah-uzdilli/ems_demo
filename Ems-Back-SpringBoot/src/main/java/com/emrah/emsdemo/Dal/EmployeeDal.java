@@ -10,6 +10,7 @@ import java.util.List;
 
 @Repository
 public class EmployeeDal implements IEmployeeDal{
+
     EntityManager entityManager;
 
 
@@ -47,6 +48,7 @@ public class EmployeeDal implements IEmployeeDal{
         session.delete(employeToDelete);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public Employee getById(int id) {
         Session session =entityManager.unwrap(Session.class);

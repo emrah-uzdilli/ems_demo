@@ -1,6 +1,5 @@
 package com.emrah.emsdemo.Dal;
 
-import com.emrah.emsdemo.Responce.LoginMessage;
 import com.emrah.emsdemo.entities.Employee;
 
 import java.util.List;
